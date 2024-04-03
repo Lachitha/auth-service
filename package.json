@@ -38,8 +38,8 @@
     "easy-soap-request": "^5.2.0",
     "exceljs": "^4.4.0",
     "express": "^4.19.2",
-    "express-rate-limit": "^6.7.0",
-    "express-session": "^1.17.3",
+    "express-rate-limit": "^6.11.2",
+    "express-session": "^1.18.0",
     "fs-extra": "^11.1.0",
     "helmet": "^3.23.0",
     "hpp": "^0.2.3",
@@ -64,7 +64,7 @@
     "stringify": "^5.2.0",
     "uuid": "^8.3.2",
     "winston": "^3.8.2",
-    "xss-clean": "^0.1.1",
+    "xss-clean": "^0.1.4",
     "zod": "^3.19.1"
   },
   "devDependencies": {
