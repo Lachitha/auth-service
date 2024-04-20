@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:alpine
 
 RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
 
@@ -9,8 +9,6 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY package*.json ./
-
-RUN apk add --update --no-cache openssl1.1-compat
 
 RUN npm i
 
