@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: auth_service_secrets
+  name: auth-service-secrets
 type: Opaque
 data:
   JWT_SECRET: 'cDRzdGEudzF0aC1iMGxvZ240ZTMtc0B1Y2U='
@@ -29,19 +29,19 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth_service_deployment
+  name: auth-service-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: auth_service
+      app: auth-service
   template:
     metadata:
       labels:
-        app: auth_service
+        app: auth-service
     spec:
       containers:
-        - name: auth_service_container
+        - name: auth-service-container
           image: sachinthadev/auth_service:latest
           ports:
             - containerPort: 3000
@@ -49,12 +49,12 @@ spec:
             - name: DB_URL
               valueFrom:
                 secretKeyRef:
-                  name: auth_service_secrets
+                  name: auth-service-secrets
                   key: DATABASE_URL
             - name: SECRET
               valueFrom:
                 secretKeyRef:
-                  name: auth_service_secrets
+                  name: auth-service-secrets
                   key: SECRET
           livenessProbe:
             httpGet:
@@ -71,7 +71,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: auth_service_service
+  name: auth-service-service
 spec:
   selector:
     app: auth_service
