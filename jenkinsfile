@@ -80,7 +80,7 @@ pipeline {
         stage('Docker Build And Tag') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'docker-ccred', toolName: 'docker') {
                         sh "docker build -t sachinthadev/auth_service:latest ."
                     }
                 }
@@ -95,7 +95,7 @@ pipeline {
          stage('Docker Image Push') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'docker-ccred', toolName: 'docker') {
                          sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
                     }
                 }
@@ -105,7 +105,7 @@ pipeline {
        stage('Docker Deploye to Dev') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'docker-ccred', toolName: 'docker') {
                         sh "docker stop ${APP_NAME} || true"
                         sh "docker rm ${APP_NAME} || true"
                         sh "docker run -d --name ${APP_NAME} -p 3000:3000 ${IMAGE_NAME}:${IMAGE_TAG}"
