@@ -5,8 +5,8 @@ pipeline {
         nodejs 'node21'
     }
     environment {
+          SCANNER_HOME = tool"sonar-scanner"   
           APP_NAME = "auth-service"
-          SCANNER_HOME = tool"sonar"   
           RELESE = "1.0.0"
           DOCKER_USER="sachinthadev"
           DOCKER_PASS="docker-cred"
