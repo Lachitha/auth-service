@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reddit-clone-deployment
+  name: auth-service-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: reddit-clone-app
+      app: auth-app
   template:
     metadata:
       labels:
-        app: reddit-clone-app
+        app: auth-app
     spec:
       containers:
-        - name: reddit-clone-app
-          image: sachinthadev/auth_service:latest
+        - name: auth-app
+          image: sachinthadev/auth-service:latest
           resources:
             limits:
               cpu: "1"
