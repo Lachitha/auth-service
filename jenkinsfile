@@ -58,7 +58,7 @@ pipeline {
 
           stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonar') {
+                withSonarQubeEnv(credentialsId: 'sonarqube-token') {
                     sh "$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=auth_service -Dsonar.projectName=auth_service"
                 }
             }
