@@ -6,7 +6,7 @@ const redisUrl = config.get<string>('redisurl')
 const redisClient = createClient({
   url: redisUrl,
   socket: {
-    connectTimeout: 50000,
+    connectTimeout: 500000,
   },
 })
 
@@ -17,7 +17,8 @@ const connectRedis = async () => {
     redisClient.set('try', 'Hello Welcome to Express with TypeORM')
   } catch (error) {
     console.log(error)
-    setTimeout(connectRedis, 100000)
+    setTimeout(connectRedis, 50000)
+    redisClient.quit()
   }
 }
 
