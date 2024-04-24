@@ -82,12 +82,21 @@ export const loginUserHandler = async (
 
     const user = await findUniqueUser(
       { email: email.toLowerCase() },
-      { id: true, email: true, verified: true, password: true },
+      {
+        id: true,
+        email: true,
+        verified: true,
+        password: true,
+        name: true,
+        role: true,
+      },
     )
 
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return next(new AppError(400, 'Invalid email or password'))
     }
+
+    console.log(user)
 
     // Sign Tokens
     const { access_token, refresh_token } = await signTokens(user)
