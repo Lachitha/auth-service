@@ -1,7 +1,7 @@
 resource "aws_instance" "web" {
   ami                    = "ami-0287a05f0ef0e9d9a"      #change ami id for different region
   instance_type          = "t2.large"
-  key_name               = "Linux-VM-Key7"              #change key name as per your setup
+  key_name               = "Linux-vm-key1"              #change key name as per your setup
   vpc_security_group_ids = [aws_security_group.Jenkins-VM-SG.id]
   user_data              = templatefile("./install.sh", {})
 
@@ -15,7 +15,7 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_security_group" "Jenkins-VM-SG" {
-  name        = "Jenkins-VM-SG"
+  name        = "Jenkins-VM-SG2"
   description = "Allow TLS inbound traffic"
 
   ingress = [
