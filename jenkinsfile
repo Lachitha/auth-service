@@ -104,8 +104,11 @@ pipeline {
                    "Build Number: ${env.BUILD_NUMBER}<br/>" +
                    "URL: ${env.BUILD_URL}<br/>",
                to: 'sudeshsachintha2016@gmail.com',                              
-               attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
+
+               attachmentsPattern: 'trivyfs.txt,trivyimage.txt,dependency-check-report.xml'
         }
-     }
+    }
+   
+}
     
 }
