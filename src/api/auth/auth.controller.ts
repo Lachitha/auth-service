@@ -8,6 +8,7 @@ import config from 'config'
 import AppError from '../../utils/errorResponse.util'
 import redisClient from '../../utils/connectRedis'
 import { signJwt, verifyJwt } from '../../utils/jwt'
+import session from 'express-session'
 
 const cookiesOptions: CookieOptions = {
   httpOnly: true,
@@ -141,7 +142,8 @@ export const refreshAccessTokenHandler = async (
     }
 
     // Check if user has a valid session
-    const session = await redisClient.get(decoded.sub)
+    const session: any = await redisClient.get(decoded.sub)
+    console.log(session)
 
     if (!session) {
       return next(new AppError(403, message))
