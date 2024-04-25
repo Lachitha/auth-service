@@ -37,7 +37,7 @@ export const signTokens = async (user: any) => {
   const obj: looseObject = {
     sub: user.uuid,
     role: user.role.name,
-    name: user.fname + ' ' + user.lname,
+    name: user.name,
     code: user.code,
     assign: assign,
   }
