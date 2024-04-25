@@ -9,7 +9,7 @@ app
   .listen(PORT, () => {
     Logger.info(`
       ################################################
-       🛡️   Server listening on port: ${PORT}  CI?CD CHECK    🛡️
+       🛡️   Server listening on port: ${PORT}  CI/CD CHECK    🛡️
       ################################################
     `)
   })
