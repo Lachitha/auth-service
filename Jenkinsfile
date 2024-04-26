@@ -41,6 +41,11 @@ pipeline {
             steps {
                 sh 'npm run build'
             }
+        }
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
         }       
         stage("Sonarqube Analysis") {
             steps {
@@ -126,6 +131,7 @@ pipeline {
                 emailext (
                     subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
                     body: body,
+                    from:"Sudeshsachintha00@gmail.com",
                     to: 'sudeshsachintha2016@gmail.com',                              
                     mimeType: 'text/html',
                     attachLog: true, 
