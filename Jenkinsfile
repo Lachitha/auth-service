@@ -128,9 +128,8 @@ pipeline {
                     body: body,
                     to: 'sudeshsachintha2016@gmail.com',                              
                     mimeType: 'text/html',
-                    attachmentsPattern: 'trivy-report.html',
                     attachLog: true, 
-                   attachmentsPattern: 'trivyfs.txt,trivyimage.txt,dependency-check-report.xml'
+                    attachmentsPattern: 'trivyfs.txt,trivyimage.txt,dependency-check-report.xml'
                 )
             }
         }
