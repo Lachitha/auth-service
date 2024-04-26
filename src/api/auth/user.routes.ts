@@ -7,6 +7,6 @@ const userRouter = express.Router()
 
 userRouter.use(deserializeUser, requireUser)
 
-userRouter.get('/me', getMeHandler)
+userRouter.get('/me', deserializeUser, requireUser, getMeHandler)
 
 export default userRouter
