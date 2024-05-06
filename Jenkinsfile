@@ -132,7 +132,7 @@ pipeline {
                     subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
                     body: body,
                     from:"Sudeshsachintha00@gmail.com",
-                    to: 'sudeshsachintha2016@gmail.com',                              
+                    to: 'sudeshsachintha2016@gmail.com,it21083150@my.sliit.lk',                              
                     mimeType: 'text/html',
                     attachLog: true, 
                     attachmentsPattern: 'trivyfs.txt,trivyimage.txt,dependency-check-report.xml'
