@@ -21,6 +21,11 @@ pipeline {
                 cleanWs()
             }
         }
+        stage('Checkout from Git') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Sachintha-dev/auth-service.git'
+            }
+        }
         stage('Clean Dependencies') {
             steps {
                 sh 'npm cache clean --force'
@@ -84,7 +89,7 @@ pipeline {
 	    stage("Trivy Image Scan") {
              steps {
                  script {
-	              sh ('docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image lachisenarath576259/auth-service:latest --no-progress --scanners vuln  --exit-code 0 --severity HIGH,CRITICAL --format table > trivyimage.txt')
+	              sh ('docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image achisenarath576259/auth-service:latest --no-progress --scanners vuln  --exit-code 0 --severity HIGH,CRITICAL --format table > trivyimage.txt')
                  }
              }
          }
